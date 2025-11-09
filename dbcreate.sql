@@ -12,14 +12,14 @@ CREATE TABLE Player_Position (
 CREATE TABLE User (
     user_ID INT PRIMARY KEY,
     user_PW VARCHAR(255) NOT NULL,
-    team_ID INT, 
+    team_ID INT,
     FOREIGN KEY (team_ID) REFERENCES Team(team_ID)
 );
 
 CREATE TABLE Game (
     game_ID INT PRIMARY KEY,
     game_Date DATE NOT NULL,
-    round_ID INT NOT NULL, 
+    round_ID INT NOT NULL,
     home_team_ID INT NOT NULL,
     away_team_ID INT NOT NULL,
     FOREIGN KEY (home_team_ID) REFERENCES Team(team_ID),
@@ -47,7 +47,7 @@ CREATE TABLE Att_Stats (
     backquick_failmis INT DEFAULT 0,
     serve_att INT DEFAULT 0,
     serve_suc INT DEFAULT 0,
-    serve_mis INT DEFAULT 0, 
+    serve_mis INT DEFAULT 0,
     PRIMARY KEY (player_ID, game_ID),
     FOREIGN KEY (player_ID) REFERENCES Player(player_ID),
     FOREIGN KEY (game_ID) REFERENCES Game(game_ID)
@@ -87,11 +87,13 @@ CREATE TABLE S_Stats (
 CREATE TABLE Scouting_Report (
     report_ID INT PRIMARY KEY AUTO_INCREMENT,
     user_ID INT NOT NULL,
-    team_ID INT NOT NULL, 
+    team_ID INT NOT NULL,
     player_ID INT NOT NULL,
     note_date TIMESTAMP NOT NULL,
     note_content TEXT NOT NULL,
-    CONSTRAINT fk_report_user FOREIGN KEY (user_ID) REFERENCES `User`(user_ID), 
+    CONSTRAINT fk_report_user FOREIGN KEY (user_ID) REFERENCES `User`(user_ID),
     CONSTRAINT fk_report_team FOREIGN KEY (team_ID) REFERENCES Team(team_ID),
     CONSTRAINT fk_report_player FOREIGN KEY (player_ID) REFERENCES Player(player_ID)
 )CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE INDEX idx_player_position ON Player(position_ID);
