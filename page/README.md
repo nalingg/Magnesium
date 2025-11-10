@@ -48,11 +48,6 @@
 1.  `git clone` or 'Download ZIP'
 2.  폴더에서 `login.html` 파일을 선택 후 테스트
 
-## 6. Author (프로토타입 제작자)
-
-* **Designed & Built by:** [OhJiSong] (Frontend Role)
 * **GitHub:** `Ohjisong`
 * **Date:** 2025-11-01
 * **Note:** 본 프로토타입은 팀 프로젝트 기획 및 UI 시각화를 위해 제작되었습니다.
-
-© 2025. [OhJisong] All rights reserved.
